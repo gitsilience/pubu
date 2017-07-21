@@ -1,0 +1,219 @@
+.gc-register-container{
+    margin:30px auto;
+    padding:0;
+    height:400px;
+    width:980px;
+    border:solid 2px green;
+    background: rgba(4, 4, 20, 0.86);
+    border-radius: 4px;
+}
+
+.gc-head-container{
+    width:978px;
+    margin:0 auto;
+    height:120px;
+    line-height: 120px;
+    background: #414c4f;
+    color: snow;
+    font-size: 3.4em;
+    font-family:微软雅黑;
+    box-sizing: border-box;
+    padding-left: 60px;
+    /*border:solid 1px greenyellow;*/
+}
+.gc-form-container{
+    margin:0 auto;
+    width: 100%;
+    height:180px;
+    /*border:solid 1px green;*/
+    position: relative;
+}
+.gc-reg-ipt-container{
+    margin: 12px auto auto 70px;
+    width:400px;
+    height:160px;
+    /*border:solid 1px #92a63a;*/
+    box-sizing: border-box;
+    padding: 7px;
+}
+.reg-tip{
+    box-sizing: border-box;
+    position: absolute;
+    height:36px;
+    width: 90px;
+    line-height: 36px;
+    text-align: right;
+    color: white;
+    font-size:1rem;
+    font-family: 微软雅黑;
+}
+
+.tip-position-2{
+    top:65px;
+}
+
+.con-register-column [type='text'], .con-register-column [type='password']{
+    display: block;
+    width: 230px;
+    height: 36px;
+    border:solid 2px rgba(52, 184, 181, 0.99);
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin:12px 0 auto 100px;
+}
+.con-register-column [type='checkbox']{
+    display: block;
+    position: absolute;
+    left: 180px;
+    top:125px;
+}
+.con-register-column label{
+    position: absolute;
+    width:auto;
+    /*border:solid 1px white;*/
+    top:121px;
+    left: 197px;
+    color:#fff;
+    font-size: 1.4em;
+}
+.gc-reg-check-container{
+    margin: 12px 130px auto 0;
+    width:420px;
+    height: 200px;
+    position: absolute;
+    /*border:solid 1px #2b542c;*/
+    top:0px;
+    left: 500px;
+}
+.gc-reg-check-container .con-register-lab{
+    width:400px;
+    height:36px;
+    display: block;
+    line-height: 36px;
+    padding:0;
+    box-sizing: border-box;
+    background: #414c4f;
+    border:solid 2px #3a5664;
+    font-size: 1.66em;
+    border-radius: 3px;
+    display: none;
+}
+.gc-check-column{
+    /*border:solid 2px greenyellow;*/
+    box-sizing: border-box;
+    position: absolute;
+    width:130px;
+    height:30px;
+    top: 9px;
+}
+#check-column-2{
+    top:55px;
+}
+
+.gc-check-column .con-reg-right{
+    width:50px;
+    height: 36px;
+    line-height: 36px;
+    background:url('../img-register/right.png') no-repeat center;
+    position: absolute;
+    display: none;
+    /*top: 12px;*/
+}
+.gc-reg-confirm{
+    width:500px;
+    margin:0 auto;
+    height:90px;
+    /*border:solid 1px greenyellow;*/
+    box-sizing: border-box;
+    position: relative;
+    /*padding: 20px;*/
+}
+[type='submit']{
+    border-radius: 3px;
+    background: linear-gradient(to bottom, #436373 0, #a8a8a8 100%) repeat-x;
+    /*background: rgba(140, 183, 180, 0.54);*/
+    width:110px;
+    height: 37px;
+    color: #1b0f3a;
+    font-size: 1.88em;
+    margin:24px 20px;
+    border-color: #3a5664;
+    position:relative;
+    left: 120px;
+}
+/*----------------------------Part Three---------------------------------*/
+.gc-part-three-container{
+    width:100%;
+    box-sizing: border-box;
+    height:200px;
+    /*border:solid 1px gold;*/
+    position:relative;
+    padding:0;
+    font-size:1rem;
+    top:60px;
+}
+.gc-ft-cont-1{
+    margin:auto;
+    width:100%;
+    height:75px;
+    line-height: 75px;
+    text-align: center;
+    border-top:solid 3px #3a5664;
+    background: #1c202d;
+    color: #bceeca;
+    font-family: myFirstFont;
+    font-size: 1.4em;
+}
+.gc-ft-cont-2{
+    /*border:solid 2px #0e5653;*/
+    width:60%;
+    margin:auto;
+}
+.gc-ft-list-sty{
+    width:30%;
+    height:140px;
+    line-height:138px;
+    border-radius: 5px;
+    border:solid 3px  #0e5653;
+    background: #0e5653;
+    box-sizing:border-box;
+    position:relative;
+    float: left;
+    margin:1%;
+    text-align: center;
+}
+.gc-ft-list-sty a:link{
+    color:  #bef2cd;
+    font-size:1.7em;
+    font-weight: 500;
+    text-decoration: none;
+}
+.gc-ft-list-sty a:visited{
+    color:  #bef2cd;
+    text-decoration: none;
+}
+.gc-ft-cont-3{
+    clear: both;
+    /*border:solid 1px greenyellow;*/
+    width:100%;
+    height:50px;
+    background: #818a81;
+    position:relative;
+    top:7px;
+}
+.gc-ft-cont3-bd{
+    width:60%;
+    margin:auto;
+    line-height: 48px;
+    height:48px;
+    position: relative;
+    left:10px;
+}
+.ft-cont3-author {
+    position: relative;
+    /*right:10px;*/
+    display: block;
+    width: 170px;
+    top: -50px;
+    left: 75%;
+}
