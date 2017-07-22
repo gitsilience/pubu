@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 1600px;
+            margin: 0 auto;
+        }
+        #box ul{
+            float: left;
+            width: 300px;
+            margin: 0 10px;
+            list-style: none;
+        }
+        #box ul li img{
+            /*height: 400px;*/
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+<script>
+    function checkHeight(oUl) {
+        //初始化
+        var height = 10000;
+        var index = 0;
+        for( var a =0;a<oUl.length;a++){
+            var now_height =oUl[a].offsetHeight;
+            if(now_height < height){
+                height =now_height;
+                index =a;
+            }
+        }
+        return index;//返回索引值
+    }
+    window.onload =function () {
+        var oBox = document.getElementById('box');
+        var oUl = oBox.getElementsByTagName('ul');
+        var vH = document.documentElement.clientHeight;
+
+        //打开页面第一次调用
+//        createElement();
+//        function createElement() {
+//        for (var a = 1; a <= 18; a++) {
+
+
+            //滚动事件
+            window.onscroll = function () {
+                var sT = document.documentElement.scrollTop || document.body.scrollTop;
+                //滚动条的高度+浏览器的高度+内容区域的高度；
+                //sT+vH = document.body.scrollHeight;
+                if (sT + vH > document.body.scrollHeight*.95) {//内容加载完毕，加载新内容
+//                    alert('加载完毕')
+                    createElement();
+                }
+            };
+        createElement();
+        function createElement() {
+            for (var a = 1; a <= 15; a++) {
+
+            var oImg = document.createElement('img');
+            oImg.src = "../CSS/image/" + a + ".jpg";
+            var oLi = document.createElement("li");
+            oLi.appendChild(oImg);
+            //获得最小ul的索引；
+            var min_index = checkHeight(oUl);
+            oUl[min_index].appendChild(oLi);
+
+        }
+    }
+
+    }
+</script>
+
+</body>
+</html>

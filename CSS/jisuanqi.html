@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        body,html{font-family:"微软雅黑";}
+        .jsq{
+            width:545px;
+            height:500px;
+            margin:50px auto;
+            background:#373538;
+            border-radius:5px;
+            box-shadow:0px 0px 3px #000;
+        }
+        .jsq p.title{
+            color:#fff;
+            font-size:18px;
+            line-height:55px;
+            text-indent:30px;
+        }
+        .jsq .num{
+            width:490px;
+            height:50px;
+            background:#dfe8ad;
+            margin:0 auto;
+            border-radius:5px;
+            text-align:right;
+            font-size:50px;
+            color:#000;
+            line-height:50px;
+            overflow:hidden;
+        }
+        .jsq .but{
+            width:490px;
+            height:315px;
+            margin:30px auto 0px;
+        }
+        .jsq .but ul li{
+            list-style:none;
+            width:80px;
+            height:60px;
+            background:#212121;
+            border-radius:5px;
+            box-shadow:0px 0px 6px #ddd;
+            float:left;
+            margin:9px;
+            color:#fff;
+            font-size:22px;
+            font-family:"Arial";
+            line-height:60px;
+            text-align:center;
+            cursor:pointer;
+        }
+        .jsq .but ul li.tool{
+            background:#ef616e;
+        }
+        .jsq .but ul li.tool2{
+            background:#ffaf3f;
+        }
+        .jsq .writer{
+            color:#ddd;
+            font-size:14px;
+            line-height:40px;
+            text-indent:30px;
+        }
+    </style>
+</head>
+<body>
+<div class="jsq">
+    <p class="title">计算器</p>
+    <div class="num" id="result">0</div>
+    <div class="but">
+        <ul>
+            <li onclick="command(7)">7</li>
+            <li onclick="command(8)">8</li>
+            <li onclick="command(9)">9</li>
+            <li class="tool">←</li>
+            <li class="tool" onclick="clearzero('j')">C</li>
+            <li onclick="command(4)">4</li>
+            <li onclick="command(5)">5</li>
+            <li onclick="command(6)">6</li>
+            <li class="tool" onclick="tools('*','g')">*</li>
+            <li class="tool" onclick="tools('/','g');">÷</li>
+            <li onclick="command(3)">3</li>
+            <li onclick="command(2)">2</li>
+            <li onclick="command(1)">1</li>
+            <li class="tool" onclick="tools('+','g');">+</li>
+            <li class="tool" onclick="tools('-','g');">-</li>
+            <li onclick="command(0)">0</li>
+            <li onclick="command(0)">00</li>
+            <li onclick="dot('g')">.</li>
+            <li class="tool" onclick="tools('*','g')">%</li>
+            <li class="tool2" onclick="equal('j')">=</li>
+        </ul>
+    </div>
+    <p class="writer">欢迎使用H5计算器 ！ 开发者：blue.EVE</div>
+</div>
+<audio src='wav/1.wav' id="music"></audio>
+<script>
+    //获取显示栏
+    var resultDom = document.getElementById("result");
+    var operate = true;
+    var xop=true;
+    //点击计算器键盘执行操作
+    function command(num){
+        //获取里面的内容
+        var str = resultDom.innerText;
+        //如果是0就是“”填充
+        str = (str=="0"?"":str);
+        //alert(str);
+        //拼接点击的数字
+        str += num;
+        //赋值给文本框
+        resultDom.innerText = str;
+        play(num);
+    }
+    //点击小数点
+    function dot(m){
+        if(xop){
+            var num = resultDom.innerText;
+            num  = num+ ".";
+            resultDom.innerText = num;
+            xop = false;
+        }
+        // 播放音效
+        play(m);
+    }
+
+    // 点击操作符
+    function tools(op,m){
+        if(operate){
+            var num = resultDom.innerText;
+            num = (num == "0"?"0":num);
+            //alert(op)
+            // 拼接操作符
+            resultDom.innerText = num + op;
+            operate = false;
+            xop = true;
+        }
+        // 播放音效
+        play(m);
+
+    }
+
+    // 计算等于
+    function equal(m){
+        play(m);
+        var result = resultDom.innerText;
+        //运算结果
+        var r = eval(result);//这是一个数字类型
+        alert(typeof r)
+
+        resultDom.innerText = r;
+        operate = true;
+        var r = resultDom.innerText;//字符串类型
+        //indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置
+        //如果要检索的字符串值没有出现，则该方法返回 -1
+        xop = (r.indexOf(".")) == -1 ? true:false;
+    }
+
+    // 播放键盘声音
+    function play(num){
+        var music = document.getElementById("music");
+        music.src="wav/"+num+".wav";
+        music.play();
+    }
+
+    // 清空
+    function clearzero(m){
+        resultDom.innerText = 0;
+        operate = true;
+        xop = true;
+        play(m);
+    }
+</script>
+</body>
+</html>

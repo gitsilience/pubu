@@ -1,0 +1,121 @@
+<!doctype  html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>换肤</title>
+    <style>
+        *{margin:0;padding:0;}
+        body{
+            background-color:#000;
+            background-image:url('../CSS/image/b1.jpg');
+            background-repeat:no-repeat;
+            background-position:center top;!important;
+        }
+        .bg-nav{
+            width:900px;
+            height:120px;
+            background:rgba(255,255,255,0.5);
+            margin:300px auto 0;
+            position:relative;
+            padding:10px 0;
+        }
+        .bg-nav .pic{
+            width:844px;
+            height:120px;
+            margin:0 auto;
+            overflow:hidden;
+            position:relative;
+        }
+        .bg-nav .pic ul{
+            width:300%;
+            height:120px;
+            position:absolute;
+            left:0;top:0;
+        }
+        .bg-nav .pic ul li{
+            width:175px;
+            height:110px;
+            list-style:none;
+            float:left;
+            border:5px solid #fff;
+            margin:0 13px;
+        }
+        .bg-nav img.btn{
+            position:absolute;
+            top:55px;
+        }
+        .bg-nav .left{
+            left:15px;
+        }
+        .bg-nav .right{
+            right:15px;
+        }
+    </style>
+</head>
+<body>
+<div class="bg-nav">
+    <div class="pic">
+        <ul>
+            <li>
+                <img src="../CSS/image/s1.jpg" width="175" height="110" alt=""/>
+            </li>
+            <li>
+                <img src="../CSS/image/s2.jpg" width="175" height="110" alt=""/>
+            </li>
+            <li>
+                <img src="../CSS/image/s3.jpg" width="175" height="110" alt=""/>
+            </li>
+            <li>
+                <img src="../CSS/image/s4.jpg" width="175" height="110" alt=""/>
+            </li>
+            <li>
+                <img src="../CSS/image/s5.jpg" width="175" height="110" alt=""/>
+            </li>
+            <li>
+                <img src="../CSS/image/s6.jpg" width="175" height="110" alt=""/>
+            </li>
+            <li>
+                <img src="../CSS/image/s7.jpg" width="175" height="110" alt=""/>
+            </li>
+            <li>
+                <img src="../CSS/image/s8.jpg" width="175" height="110" alt=""/>
+            </li>
+            <li>
+                <img src="../CSS/image/s9.jpg" width="175" height="110" alt=""/>
+            </li>
+            <li>
+                <img src="../CSS/image/s10.jpg" width="175" height="110" alt=""/>
+            </li>
+        </ul>
+    </div>
+    <img class="btn left" src="../CSS/image/dirl.png">
+    <img class="btn right" src="../CSS/image/dirr.png">
+</div>
+<script src="JS/jquery-2.1.1.js"></script>
+<script>
+    var num = 0;
+    $('.bg-nav .left').click(function(){
+        num++;
+        if(num>2){
+            num = 2;
+            alert('没有了');
+        }
+        $('ul').animate({left:-844*num+'px'},500);
+    });
+    $('.bg-nav .right').click(function(){
+        num--;
+        if(num<0){
+            num = 0;
+            alert('没有了');
+        }
+        $('ul').animate({left:-844*num+'px'},500);
+    });
+    //换肤
+    var arr = ['b1.jpg','b2.jpg','b3.jpg','b4.jpg','b5.jpg','b6.jpg','b7.jpg','b8.jpg','b9.jpg','b10.jpg'];
+    $('.bg-nav .pic ul li').click(function(){
+        var i = $(this).index();
+        $('body').css({'background-image':"url('image/"+arr[i]+"')"})
+    })
+</script>
+</body>
+</html>

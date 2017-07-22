@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*css,层叠样式表，对结构区域的修饰*/
+        body{
+            background-color: black;
+        }
+        #wrap{
+            margin: 10%;
+            width: 100%;
+            height: 200px;
+            /*margin-top: 150px;*/
+            position: relative;/* 相对定位，不懂得参照物*/
+            transform-style: preserve-3d; /* flag为在2d空间内呈现*/
+            perspective: 800px; /*给大盒子添加一个视窗，进深*/
+        }
+
+        #wrap img{
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            border-radius:5px;
+            box-shadow: 0 0 10px #0f0;
+            -webkit-box-reflect:below 5px -webkit-linear-gradient(top , rgba(0,0,0,0) 20% , rgba(0,0,0,.7) 100%);
+            transition: 1s;
+
+        }
+        #wrap img.left{
+            transform: rotateY(45deg) translateZ(-100px);
+        }
+        #wrap img.middle{
+            transform:translateZ(100px);
+
+        }
+        #wrap img.right{
+            transform: rotateY(-45deg) translateZ(-100px);
+
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div class="container">
+        <img src="../CSS/image/1.jpg" alt="" class="left" style="left: 210px" >
+        <img src="../CSS/image/1.jpg" alt="" class="left" style="left: 310px" >
+        <img src="../CSS/image/1.jpg" alt="" class="left" style="left: 410px" >
+        <img src="../CSS/image/3.jpg" alt="" class="left" style="left: 510px">
+        <img src="../CSS/image/2.jpg" alt="" class="middle" style="left: 610px">
+        <img src="../CSS/image/4.jpg" alt="" class="right" style="left: 710px">
+        <img src="../CSS/image/2.jpg" alt="" class="right" style="left: 810px">
+        <img src="../CSS/image/2.jpg" alt="" class="right" style="left: 910px">
+        <img src="../CSS/image/2.jpg" alt="" class="right" style="left: 1010px">
+    </div>
+</div>
+<script>
+    var  oWrap = document.getElementById('wrap');
+    var oImg = oWrap.getElementsByTagName('img');
+    var mIndex = 4;
+    for (var i=0;i<oImg.length;i++){
+        oImg[i].index = i;
+        oImg[i].onclick = function () {
+            var  nIndex = this.index;
+            for (var j=0;j<oImg.length;j++){
+                oImg[j].style.left = oImg[j].offsetLeft -100*(nIndex-mIndex)+'px';
+                if (j< nIndex){
+                    oImg[j].className='left';
+                }else if(j == nIndex){
+                    oImg[j].className ='middle';
+                }else {
+                    oImg[j].className ='right';
+                }
+            }
+            mIndex = nIndex;
+        }
+    }
+</script>
+
+</body>
+</html>

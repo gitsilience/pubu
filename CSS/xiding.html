@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+    <!--声明当前页面编码格式为国际编码（utf-8）还有一种中文编码（gbk/gb2312）-->
+    <meta charset="UTF-8">
+    <title>网页的标题</title>
+    <style>
+        *{
+            margin:0;padding:0;
+        }
+        .header{
+            width:1201px;
+            height:160px;
+            margin:0 auto;/*上下外边距 左右居中*/
+        }
+        .header .soso{
+            width:1201px;
+            height:120px;
+        }
+        .header .soso h1{
+            float:left;
+            margin-top:30px;
+        }
+        .header .soso .soso-con{
+            width:530px;
+            height:120px;
+            float:left;
+            margin-left:150px;
+        }
+        .header .soso .soso-con .tab{
+            overflow:hidden;
+            font-size:14px;
+            color:#666;
+            font-family:'微软雅黑';
+            margin-top:10px;
+        }
+        .header .soso .soso-con .tab span{
+            background:#ccc;
+            padding:5px 10px;
+            float:left;
+            cursor:pointer;
+        }
+        .header .soso .soso-con .tab span.active{
+            background:#FF3366;
+            color:#fff;
+        }
+        .header .soso .soso-con .soso-in{
+            height:30px;
+        }
+        .header .soso .soso-con .soso-in input.txt{
+            width:450px;
+            height:26px;
+            border:2px solid #FF3366;
+            outline:none;
+            text-indent:15px;
+            float:left;
+        }
+        .header .soso .soso-con .soso-in input.sub{
+            width:70px;
+            height:30px;
+            border:none;
+            outline:none;
+            background:#FF3366 url('../CSS/image/ioc.png') no-repeat center center;
+            float:left;
+        }
+        .header .soso .soso-con .link a{
+            color:#666;
+            font-size:12px;
+            text-decoration:none;
+            line-height:30px;
+        }
+        .nav{
+            width:100%;
+            height:50px;
+            background:#fff;
+            border-bottom:1px solid #f69;
+            border-top: 1px solid gainsboro;
+        }
+        .nav ul{
+            width:1201px;
+            margin:0 auto;
+        }
+        .nav ul li{
+            list-style:none;
+            float:left;
+            line-height:50px;
+            margin:0 15px;
+        }
+        .nav ul li a{
+            color:#000;
+            text-decoration:none;
+        }
+        .nav ul li a:hover{
+            color:#f69;
+        }
+        .main{
+            width:1201px;
+            height:2000px;
+            margin:0 auto;
+        }
+        .fix{
+            position:fixed;
+            left:0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <img src="../CSS/image/top-nav.png" width="1201" height="35" alt="头部"/>
+    <div class="soso">
+        <h1><a href=""><img src="../CSS/image/logo.png" width="193" height="48" alt="美丽说"></a></h1>
+        <div class="soso-con">
+            <div class="tab">
+                <span class="active">宝贝</span>
+                <span>店铺</span>
+            </div>
+            <div class="soso-in">
+                <form>
+                    <input class="txt" type="text" value="牛仔"/>
+                    <input class="sub" type="submit" value="">
+                </form>
+            </div>
+            <div class="link">
+                <a href="">套装</a>
+                <a href="">棉服</a>
+                <a href="">卫衣</a>
+                <a href="">打底裤</a>
+                <a href="">围巾</a>
+                <a href="">睡衣</a>
+                <a href="">小白鞋</a>
+                <a href="">运动鞋</a>
+                <a href="">双肩包</a>
+                <a href="">风衣</a>
+                <a href="">高跟鞋</a>
+                <a href="">面膜</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="nav">
+    <ul>
+        <li><a href="">首页</a></li>
+        <li><a href="">最新</a></li>
+        <li><a href="">上衣</a></li>
+        <li><a href="">裙子</a></li>
+        <li><a href="">裤子</a></li>
+        <li><a href="">鞋子</a></li>
+        <li><a href="">包包</a></li>
+        <li><a href="">配饰</a></li>
+        <li><a href="">更多</a></li>
+        <li><a href="">Hi范儿</a></li>
+        <li><a href="">明星</a></li>
+        <li><a href="">同款</a></li>
+        <li><a href="">韩国馆</a></li>
+        <li><a href="">团购</a></li>
+        <li><a href="">福利社</a></li>
+    </ul>
+</div>
+<div class="main">
+    <img src="../CSS/image/2.png"/>
+</div>
+<script src="JS/jquery-2.1.1.js"></script>
+<script>
+    $(window).scroll(function(){
+        var _top = $(window).scrollTop();//滚动条高度
+        if(_top>170){
+            $('.nav').addClass("fix");
+        }else{
+            $('.nav').removeClass("fix");
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            color: red;
+        }
+        b{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input type="text" id="text"  placeholder="输入不少于六位字母" onkeyup="txt(text)"><br>
+    <i id="txt_1"></i><br>
+    <input type="password" id="psd"  placeholder="输入不少于六位数字" onkeyup="pass(psd)"><br>
+    <i id="pass_1"></i><br>
+    <input type="password" id="con" placeholder="请确认密码" onkeyup="firm(con)"><br>
+    <i id="confirm_1"></i><br>
+    <input type="button" id="register" value="注册">
+</div>
+<script>
+    var qz,qz_1,ch,ch_1;
+    function txt(text) {
+        var intxt=$('txt_1'),  //声明 将提示信息输入内容赋予变量intxt，$（'txt_1'）为提示框id
+                sc=text.value, //继续声明 将文本框输入内容取出赋予变量SC
+                sc_1=sc.trim() //继续声明 将sc的前后空格去掉赋予sc_1
+        if (!sc_1){      //当不等于sc_1是弹出“ 请输入账号！”
+            intxt.innerHTML="<span>请输入账号！</span>"//将输出内容转换为html文本输出
+            return false
+        }
+        if (sc_1.length<6){
+            intxt.innerHTML="<span>用户名少于六位</span>"
+            return false
+        }else {
+            var pd;
+            for (var a=0;a<sc_1.length;a++){
+                pd=sc_1.charAt(a);
+                if(!(pd<='z'&&pd>='a'||pd<='Z'&&pd>='A')){
+                    intxt.innerHTML="<span>用户名格式错误</span>"
+                    return false
+                }
+            }
+        }
+        intxt.innerHTML="<b>√</b>"
+        return true
+    }
+    function pass(psd) {
+        var inpass=$('pass_1');
+        qz=psd.value;
+        qz_1=qz.trim();
+        if (!qz_1){
+            inpass.innerHTML="<span>密码不能为空</span>"
+            return false;
+        }
+        if(isNaN(qz_1)) {
+            inpass.innerHTML = "<span>只能输入数字且不少于6位</span>"
+            return false;
+        }
+        if(qz_1.length<6){
+            inpass.innerHTML="<span>密码少于六位数</span>"
+            return false;
+        }inpass.innerHTML="<b>√ </b>"
+        /* else {
+         var pd_1;
+         for (var b=0;b<qz_1.length;b++){
+         pd_1=qz_1.charAt(b);
+         if (!(pd_1<=9&&pd_1>=0)){
+         inpass.innerHTML="<span>密码格式错误</span>"
+         return false;
+         }
+         }
+         }  inpass.innerHTML="<b>请牢记密码</b>"*/
+        return true
+    }
+    function firm(con) {
+        var inconfirm_1=$('confirm_1');
+        ch=con.value;
+        ch_1=ch.trim();
+        if(!ch_1){
+            inconfirm_1.innerHTML="<span>请确认密码</span>"
+            return false;
+        }
+        if(isNaN(ch_1)){
+            inconfirm_1.innerHTML="<span>请输入不少于六位数字</span>"
+            return false;
+        }
+        if(ch_1.length<6){
+            inconfirm_1.innerHTML="<span>密码少于六位数</span>"
+            return false;}
+        if(ch_1!=qz_1){
+            inconfirm_1.innerHTML="<span>两次密码不一致</span>"
+            return false;}else {
+            inconfirm_1.innerHTML="<b>√</b>"
+            return true;
+        }
+    }
+    $('register').addEventListener('click',function () {
+        if(txt(text)==true && pass(psd)==true&& firm(con)==true){
+            location.href='http://www.baidu.com'
+        }
+        if (!(txt(text)==true)){
+            text.select();
+            return false;
+        } if (!(pass(psd)==true)){
+            psd.select();
+            return false;
+        } else {
+            con.select();
+        }
+    })
+    function $(id) {
+        return document.getElementById(id);
+    }
+</script>
+</body>
+</html>

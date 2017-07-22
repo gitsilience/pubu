@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #myCanvas{
+            width: 400px;
+            height: 300px;
+            border: solid 1px grey;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+<script>
+//    var c=document.getElementById("myCanvas");
+//    var ctx=c.getContext("2d");
+//
+//    var gradient=ctx.createLinearGradient(0,0,170,0);
+//    gradient.addColorStop("0","green");
+//    gradient.addColorStop("0.5","blue");
+//    gradient.addColorStop("0.8","red");
+//    gradient.addColorStop("1.0","grey");
+//
+//    // Fill with gradient
+//    ctx.strokeStyle=gradient;
+//    ctx.lineWidth=5;
+//    ctx.strokeRect(20,20,150,100);
+var c=document.getElementById('myCanvas');
+var ctx=c.getContext('2d');
+var gradient=ctx.createLinearGradient(0,0,170,0);
+gradient.addColorStop('0','green');
+gradient.addColorStop('0.2','yellow');
+gradient.addColorStop('0.4','green');
+gradient.addColorStop('0.6','red');
+gradient.addColorStop('0.8','grey');
+gradient.addColorStop('1','black');
+
+ctx.strokeStyle=gradient;
+ctx.lineWidth=1;
+ctx.strokeRect(20,20,150,100);
+
+
+
+//var c=document.getElementById("myCanvas");
+//var ctx=c.getContext("2d");
+//ctx.font="30px Verdana";
+//// 创建渐变
+//var gradient=ctx.createLinearGradient(0,0,c.width,0);
+//gradient.addColorStop("0","magenta");
+//gradient.addColorStop("0.5","blue");
+//gradient.addColorStop("1.0","red");
+//// 渐变填充
+//ctx.strokeStyle=gradient;
+//ctx.strokeText("Big smile!",10,50);
+</script>
+</body>
+</html>

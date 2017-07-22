@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #canvas{
+            display: block;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas">您的浏览器不支持canvas标签</canvas>
+<script>
+    var can = document.getElementById('canvas');
+    var ctx = can.getContext('2d');//设置canvas绘图环境
+    var w =can.width=window.innerWidth;
+    var h =can.height=window.innerHeight;
+    var counts = 30;//30个小雨滴
+    var drops = [];
+    window.onresize=function () {
+        w =can.width=window.innerWidth;
+        h =can.height=window.innerHeight;
+    };
+    //创建一个雨滴对象
+   function Drop() {
+
+   }
+   Drop.prototype = {
+       init : function () {//初始化雨滴对象
+           this.x  = random(0,w);//随机生成一个0~w支架的一个随机的雨滴
+           this.y = 0;//y坐标初始值
+           this.vy=random(4,5);//随机生成一个雨滴下落的加速度
+           this.l =random(h*0.8,h*0.9);//雨滴最终的落点
+       },
+       //绘制雨滴
+       draw: function () {
+           ctx.fillStyle = 'red';
+           ctx.fillRect(this.x,this.y,20,30)
+           this.update();
+       },
+       update: function () {
+           if (this.y <this.l){
+               this.y += this.vy;
+           }
+       }
+
+   };
+     var drop = new Drop();
+    drop.init();
+    drop.draw();
+//    setInterval(function () {
+//        ctx.clearRect(0,0,w,h);
+//        drop.draw()
+//    },100
+//    );
+    function move() {
+        ctx.clearRect(0,0,w,h);
+        drop.draw();
+        requestAnimationFrame(move);//帧动画
+    }
+    move();
+    function setDrop() {
+        for (var i=0;i<counts;i++){
+            setTimeout(function () {
+                var drop =new Drop();
+                drop.init();
+                drop.push(drop);
+            },j*200)
+
+        }
+
+    }
+
+   function random(min,max) {
+       return Math.random()*(max-min)+min;
+
+   }
+
+
+</script>
+</body>
+</html>

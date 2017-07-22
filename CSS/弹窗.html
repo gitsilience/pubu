@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .btn{
+            position: relative;
+            left: 95%;
+            top: 20px;
+        }
+        form{
+            width: 500px;
+            height: 350px;
+            background-color: #f2f2f2;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            top:0;
+            display: none;
+
+        }
+        .title{
+            width: 500px;
+            height: 66px;
+            background-color: #714d75;
+            text-indent: 20px;
+            line-height: 66px;
+            font-size:16px;
+            color: white;
+        }
+        .title i{
+            width: 20px;
+            height: 20px;
+            background: url("../CSS/image/close.png");
+            float: right;
+            margin-right: 10px;
+            margin-top: 22px;
+        }
+        form .text_one{
+            width: 360px;
+            height: 42px;
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+            text-indent: 20px;
+            background: url("../CSS/image/ioc1.png") no-repeat 320px ;
+            border: solid 1px #ddd;
+
+        }
+        form .text_two{
+            width: 360px;
+            height: 42px;
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+            text-indent: 20px;
+            background: url("../CSS/image/ioc2.png") no-repeat 320px ;
+            border: solid 1px #ddd;
+        }
+       form .Sin{
+            width: 100px;
+            height: 40px;
+            background: #714d75;
+            color: white;
+           margin: 20px 0 0 70px;
+        }
+        a{
+            text-decoration: none;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<button class="btn" id="btn">登录</button>
+<form action="" id="form">
+    <div class="title" id="title">Login_From   <i></i></div>
+    <p><input type="text" class="text_one" placeholder="UserName"></p>
+    <p><input type="text" class="text_two" placeholder="Password"></p>
+    <p><input type="submit" class="Sin" value="Sign in"><a href="">Lost Your Password ?</a></p>
+</form>
+<script>
+window.onload=function () {
+    var Btn = document.getElementById('btn');
+    var Form= document.getElementById('form');
+    var Title = document.getElementById('title');
+    Btn.onclick = function () {
+    Form.style.display='block';
+        center();
+    };
+    function center() {
+        var _left = window.innerWidth/2-250;
+        var _top = window.innerHeight/2-175;
+        Form.style.left = _left+'px';
+        Form.style.top = _top+'px';
+    }
+    window.onresize=function () {
+        center();
+    };
+    var l,t,y,x;
+    var onoff = true;
+    Title.onmousedown= function (e) {
+        e=e||event;
+        x = e.clientX;
+        y= e.clientY;
+        l=Form.offsetLeft;
+        t=Form.offsetTop;
+        onoff=true;
+        document.onmousemove = function (e) {
+            if(onoff){
+                e = e||event;
+                var _x = e.clientX;
+                var _y = e.clientY;
+                var nowLeft = _x-x+l;
+                var nowTop = _y-y+t;
+                Form.style.left = nowLeft+'px';
+                Form.style.top = nowTop+'px';
+            }
+        };
+        document.onmouseup = function () {
+            onoff = false;
+        }
+    };
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+@charset "utf-8";
+
+/*引导页及登录页样式表 */
+
+/*通用*/
+
+#wrap {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background: #1d1e1e;
+}
+
+.border-box{
+    width: 100%;
+    height: 100%;
+    border: 5px solid #ffcc00;
+    position: relative;
+    z-index: 1;
+}
+
+/*引导页*/
+
+.dircet-page{
+    background:url(../images/direct-bg.png) center center no-repeat;
+    background-size:cover
+}
+
+.top-bar{
+    width:100%;
+    height:80px;
+}
+
+.logo,
+.logo a{
+    width: 180px;
+    height: 65px;
+    display: inline-block;
+    background-size:cover;
+    vertical-align: top;
+}
+
+.logo{
+    margin:10px 0 0 10px;
+    background:url(../images/logo-w.png) no-repeat;
+    background-size:180px 65px;
+}
+
+.logo a{
+    text-indent:-300em
+}
+
+.top-btn{
+    position: absolute;
+    top: 30px;
+    left: 300px;
+    font-size: 16px;
+    z-index:2
+}
+
+.top-btn a{
+    padding: 5px 20px;
+    border-radius: 5px;
+    background: #6d7a9a;
+    text-align: center;
+    display: inline-block;
+    border-bottom: 3px solid #49587d;
+    margin-right:10px;
+    margin-left:10px;
+}
+
+.top-btn a:hover{
+    background:#586991;
+}
+
+.top-btn i{
+    margin-right:5px;
+}
+
+.login-btn{
+    position: absolute;
+    top: 30px;
+    left: 300px;
+    font-size: 16px;
+    z-index: 20
+}
+
+.login-btn a{
+    padding: 5px 20px;
+    border-radius: 5px;
+    background: #6d7a9a;
+    text-align: center;
+    display: inline-block;
+    border-bottom: 3px solid #49587d;
+}
+
+.login-btn a:hover{
+    background:#586991;
+}
+
+.login-btn a i{
+    margin-right:5px;
+}
+
+
+.main{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    padding-top:120px;
+    z-index:1
+}
+
+.entrance{
+    width:100%;
+    height:100%;
+    position:relative
+}
+
+.entrance .item{
+    width:180px;
+    height:180px;
+    background:url(../image/1.jpg) no-repeat;
+    position:absolute;
+    font-size:22px;
+}
+
+.entrance .item a{
+    width:180px;
+    height:180px;
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    text-align:center;
+    line-height:180px;
+    z-index:5
+}
+
+.entrance .item .hover{
+    width:250px;
+    height:250px;
+    background:url(../images/enter-hover.png);
+    position:absolute;
+    top:-17px;
+    left:-46px;
+    display:none;
+    z-index:3;
+}
+
+.entrance .item:hover .hover{
+    display:block;
+}
+
+.entrance .item.cs{
+    left:60px;
+    top:60px
+}
+
+.entrance .item.as{
+    left:20%;
+    top:120px
+}
+
+.entrance .item.ac{
+    left:50%;
+    top:80px
+}
+
+.entrance .item.lab{
+    right:60px;
+    top:20px
+}
+
+.entrance .item.tp{
+    left:100px;
+    bottom:40%
+}
+
+.entrance .item.pa{
+    left:25%;
+    bottom:20%
+}
+
+.entrance .item.cm{
+    right:35%;
+    bottom:30%
+}
+
+.entrance .item.cf{
+    right:60px;
+    bottom:10%
+}
+
+/*登录及相关*/
+.login-page{
+    background:url(../images/login-bg.png) center center no-repeat;
+    background-size:cover
+}
+
+.main-box{
+    width:500px;
+    height:500px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-250px;
+    margin-top:-250px;
+    text-align:center
+}
+
+.main-box .logo{
+    margin:0
+}
+
+.main-box .login-box{
+    width:100%;
+    height:435px;
+    padding:20px;
+}
+
+.main-box .label-group{
+    display:inline-block;
+    margin-bottom:20px;
+    width:100%;
+    text-align:center
+}
+
+.main-box .label-group.input{
+    height:40px;
+    line-height:35px;
+    display:inline-block;
+    vertical-align:top;
+    background:rgba(0,0,0,.2);
+    border:2px solid #4b515f;
+    color:#fff;
+    padding-left:10px;
+    border-radius:5px;
+    text-align:left;
+}
+
+.main-box .label-group input{
+    width:80%;
+    color:#fff;
+    font-size:16px;
+}
+
+.main-box .label-group.input i{
+    margin-left:5px;
+}
+
+.main-box .label-group .submit{
+    background: #ffcc00;
+    display: inline-block;
+    padding: 5px 25px;
+    border-radius: 5px;
+    font-size:16px;
+    color:#000;
+    border-bottom:3px solid #b38f01
+}
+
+.main-box .label-group .submit:hover{
+    background: #ac8b07;
+    text-decoration:none
+}
+
+.main-box .label-group span{
+    color:#4b515f;
+    font-size:14px;
+}
+
+.main-box .label-group a{
+    font-size:16px;
+}
+
+.main-box .label-group a.forget{
+    font-size:12px;
+}
+
+.main-box .label-group a:hover{
+    text-decoration:underline
+}
+
+.main-box h3{
+    color:#fff;
+    height:50px;
+    line-height:50px;
+    font-weight:normal;
+}
+
+.main-box h3 strong{
+    color:#FFCE00;
+    padding:0 10px
+}
+
+.auth{
+    line-height:40px;
+    overflow: hidden;
+    clear: both;
+    padding-top: 0px;
+    padding-right: 10px;
+}
+.auth-ipt{
+    display: inline;
+    width: 50% !important;
+    float: left;
+    height: 36px;
+}
+.auth-img{
+    display: inline;
+    width: 25%;
+    float: left;
+}
+.re-auth{
+    font-size: 12px !important;
+    width: 25%;
+    float: right;
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+

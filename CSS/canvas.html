@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #canvas{
+            display: block;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas">您的浏览器不支持canvas标签</canvas>
+<script>
+    var can = document.getElementById('canvas');
+    var ctx = can.getContext('2d');//设置canvas绘图环境
+    var w =can.width=window.innerWidth;
+    var h =can.height=window.innerHeight;
+    window.onresize=function () {
+        w =can.width=window.innerWidth;
+        h =can.height=window.innerHeight;
+    };
+    //当浏览器尺寸改变的时候调用这个方法
+    //绘制实心框
+    var y =0;
+    function rect(y) {
+        ctx.fillStyle='red';//设置绘制方法的颜色；
+        ctx.fillRect(100,y,50,50);//x,y绘制坐标位置，w，h为宽高
+
+    }
+
+//    //这个是绘制空心框
+//    ctx.strokeStyle='#fff';
+//    ctx.strokeRect(200,200,100,100);
+    ctx.arc(500,400,100,0,2*Math.PI,false);//x,y圆心坐标，r半径
+//    ctx.stroke();
+    ctx.fill();
+    setInterval(function () {
+        y++;
+        ctx.clearRect(0,0,w,h);
+        rect(y)
+    },10);
+
+
+</script>
+</body>
+</html>
